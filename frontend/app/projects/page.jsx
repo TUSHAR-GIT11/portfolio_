@@ -29,15 +29,18 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <section className="min-h-screen px-24 py-32">
+    <section className="min-h-screen px-6 sm:px-12 lg:px-24 py-16 sm:py-24 lg:py-32">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut" }}
+        transition={{ duration: 0.7 }}
         viewport={{ once: true }}
       >
-        <h1 className="text-4xl font-bold">Projects</h1>
-        <p className="text-white/70 mt-3 max-w-2xl">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">
+          Projects
+        </h1>
+
+        <p className="text-white/70 mt-3 max-w-2xl text-sm sm:text-base">
           A selection of real-world projects showcasing my hands-on experience
           in front-end, mobile, and full-stack application development.
         </p>
@@ -46,14 +49,12 @@ export default function ProjectsPage() {
       <motion.div
         variants={{
           hidden: {},
-          visible: {
-            transition: { staggerChildren: 0.15 },
-          },
+          visible: { transition: { staggerChildren: 0.15 } },
         }}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-16"
+        className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-10 mt-12 sm:mt-16"
       >
         {projects.map((project) => (
           <ProjectCard key={project.title} {...project} />
@@ -71,13 +72,13 @@ function ProjectCard({ title, description, tech, github }) {
         visible: { opacity: 1, y: 0 },
       }}
       whileHover={{
-        y: -10,
+        y: -8,
         scale: 1.02,
       }}
       transition={{ type: "spring", stiffness: 200, damping: 18 }}
       className="
         relative group
-        p-8 rounded-2xl
+        p-6 sm:p-8 rounded-2xl
         bg-white/[0.04]
         backdrop-blur-xl
         border border-white/10
@@ -95,9 +96,13 @@ function ProjectCard({ title, description, tech, github }) {
       />
 
       <div className="relative z-10">
-        <h2 className="text-2xl font-semibold">{title}</h2>
+        <h2 className="text-xl sm:text-2xl font-semibold">
+          {title}
+        </h2>
 
-        <p className="text-white/70 mt-3 leading-relaxed">{description}</p>
+        <p className="text-white/70 mt-3 leading-relaxed text-sm sm:text-base">
+          {description}
+        </p>
 
         <motion.div
           variants={{
@@ -114,7 +119,7 @@ function ProjectCard({ title, description, tech, github }) {
                 visible: { opacity: 1, y: 0 },
               }}
               className="
-                text-xs px-3 py-1 rounded-full
+                text-[10px] sm:text-xs px-3 py-1 rounded-full
                 bg-white/10
                 text-white/80
                 border border-white/10
@@ -134,12 +139,13 @@ function ProjectCard({ title, description, tech, github }) {
           whileHover={{ x: 4 }}
           className="
             mt-6 inline-flex items-center gap-2
+            text-sm sm:text-base
             text-white/80 font-medium
             hover:text-green-400
             transition
           "
         >
-          <FaGithub className="text-lg" />
+          <FaGithub className="text-base sm:text-lg" />
           View Source Code
         </motion.a>
       </div>

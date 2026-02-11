@@ -31,22 +31,25 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex justify-center relative">
-      <div className="w-full max-w-6xl px-32 flex flex-col justify-center">
+    <section className="min-h-screen flex items-center justify-center relative">
+      <div className="w-full max-w-6xl px-6 sm:px-12 lg:px-24 flex flex-col justify-center">
+        
+        {/* Name */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="text-6xl font-bold"
+          className="text-3xl sm:text-5xl lg:text-6xl font-bold text-center sm:text-left"
         >
           Tushar Gupta
         </motion.h1>
 
+        {/* Typed Text */}
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-4 text-2xl font-mono"
+          className="mt-4 text-lg sm:text-xl lg:text-2xl font-mono text-center sm:text-left"
         >
           I'm{" "}
           <span
@@ -55,17 +58,18 @@ export default function Hero() {
           />
         </motion.p>
 
+        {/* Navigation */}
         <motion.ul
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="flex gap-8 mt-6 text-lg"
+          className="flex flex-wrap justify-center sm:justify-start gap-4 sm:gap-6 mt-6 text-sm sm:text-base lg:text-lg"
         >
           {navItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
-                className={`relative cursor-pointer text-lg font-medium
+                className={`relative cursor-pointer font-medium
                   transition-colors duration-300 ease-out
                   ${
                     item.href === "/"
@@ -83,8 +87,7 @@ export default function Hero() {
                   after:origin-left
                   after:scale-x-0
                   after:transition-transform
-                  after:duration-400
-                  after:ease-out
+                  after:duration-300
 
                   hover:after:scale-x-100
                   ${item.href === "/" ? "after:scale-x-100" : ""}
@@ -96,23 +99,33 @@ export default function Hero() {
           ))}
         </motion.ul>
 
+        {/* Social Icons */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6 }}
-          className="flex gap-4 mt-8"
+          className="flex justify-center sm:justify-start gap-4 mt-8"
         >
-          <a href="https://www.linkedin.com/in/tushargupta11/" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://www.linkedin.com/in/tushargupta11/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Icon>
               <FaLinkedinIn />
             </Icon>
           </a>
 
-          <a href="https://github.com/TUSHAR-GIT11" target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/TUSHAR-GIT11"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Icon>
               <FaGithub />
             </Icon>
           </a>
+
           <a href="mailto:tushargupta10th@gmail.com">
             <Icon>
               <FaGoogle />
@@ -124,9 +137,10 @@ export default function Hero() {
   );
 }
 
+/* Reusable Icon Component */
 function Icon({ children }) {
   return (
-    <div className="w-12 h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-green-400 hover:text-black transition">
+    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white/10 hover:bg-green-400 hover:text-black transition text-lg sm:text-xl">
       {children}
     </div>
   );
