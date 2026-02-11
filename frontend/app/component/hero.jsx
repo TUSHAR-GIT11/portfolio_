@@ -31,9 +31,9 @@ export default function Hero() {
   ];
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative">
+    <section className="min-h-screen flex items-start justify-center pt-28 sm:pt-36 relative">
       <div className="w-full max-w-6xl px-6 sm:px-12 lg:px-24 flex flex-col justify-center">
-        
+
         {/* Name */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
@@ -132,6 +132,7 @@ export default function Hero() {
             </Icon>
           </a>
         </motion.div>
+
       </div>
     </section>
   );
